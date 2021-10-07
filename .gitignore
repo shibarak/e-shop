@@ -3,7 +3,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=flask
 
 config.py
-
+cert.pem
+key.pem
 ### Flask ###
 instance/*
 !instance/.gitignore
