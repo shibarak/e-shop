@@ -1,0 +1,19 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% include 'header.html' %}
+<div>
+
+        <div class="col-lg-8 col-10 mx-auto form-wrapper">
+            {% with messages = get_flashed_messages() %}
+            {% if messages: %}
+            {% for message in messages: %}
+            <p style="color: #ff039b;"><em>{{ message }}</em></p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "outline-dark"}) }}
+        </div>
+
+</div>
+
+
+{% include 'footer.html' %}

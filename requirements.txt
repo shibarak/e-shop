@@ -1,0 +1,7 @@
+shortuuid~=1.0.1
+logger~=1.4
+stripe~=2.60.0
+Flask~=2.0.1
+Werkzeug~=2.0.1
+SQLAlchemy~=1.4.23
+WTForms~=2.3.3

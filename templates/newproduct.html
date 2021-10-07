@@ -1,0 +1,118 @@
+{% include "header.html" %}
+<div>
+        <div class="col-lg-8 col-10 mx-auto form-wrapper new-product-form">
+            <h2>Add Product</h2>
+            {% if url_key %}
+            <form method="POST" action="{{ url_for('edit_product', url_key=url_key) }}" novalidate enctype="multipart/form-data">
+            {% else %}
+            <form method="POST" action="{{ url_for('add_product') }}" novalidate enctype="multipart/form-data">
+            {% endif %}
+                {{ form.csrf_token }}
+                <div class=mb-3>
+                    {{ form.name.label }}
+                    {{ form.name }}
+                    {% if form.name.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.name.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+                </div>
+
+
+                <div class="mb-3">
+                    {{ ckeditor.load() }}
+                    {{ ckeditor.config(name='description') }}
+                    {{ form.description.label }}
+                    {{ form.description }}
+                    {% if form.description.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.description.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+
+                </div>
+
+                <div class="mb-3">
+                    {{ form.featured_item.label }}
+                    {{ form.featured_item }}
+                    {% if form.featured_item.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.featured_item.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+
+                </div>
+
+                <div class="mb-3">
+                    {{ form.price.label }}
+                    {{ form.price }}
+                    {% if form.price.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.price.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    {{ form.sale_price.label }}
+                    {{ form.sale_price }}
+                    {% if form.sale_price.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.sale_price.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    {{ form.inventory.label }}
+                    {{ form.inventory }}
+                    {% if form.inventory.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.inventory.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    {{ form.stripe_id.label }}
+                    {{ form.stripe_id }}
+                    {% if form.stripe_id.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.stripe_id.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+                </div>
+                <div class="mb-3">
+                    {{ form.images.label }}
+                    {{ form.images }}
+                    {% if form.images.errors %}
+                    <ul class="errors list-unstyled">
+                    {% for error in form.images.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                     </ul>
+                    {% endif %}
+                </div>
+                <div>
+                    {{ form.submit(class="btn btn-outline-dark") }}
+                </div>
+
+            </form>
+        </div>
+
+</div>
+
+
+
+{% include "footer.html" %}
